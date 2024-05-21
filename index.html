@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pen History Lookup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://img.freepik.com/free-photo/white-pen-isolated-white-writing-paper-background_1372-14.jpg?t=st=1716323648~exp=1716327248~hmac=52a6a59b183ef67e9676b10c5137364b4c9548606563bbef6ed73bf22d448506&w=1380'); 
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pen History Lookup</h1>
+        <form id="serialForm">
+            <label for="serialInput">Enter Serial Code:</label>
+            <input type="text" id="serialInput" required>
+            <button type="submit">Check History</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script>
+        document.getElementById('serialForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const serialCode = document.getElementById('serialInput').value.trim();
+            const result = document.getElementById('result');
+            
+            let message = '';
+
+            switch(serialCode) {
+                case '13894679AB':
+                    message = `This pen was meant to be borrowed by the most retarded person Aldrin Blesson. It was specifically handcrafted for Aldrin's dummness on how he doesn't know how to use a pen. If you have borrowed this pen, return it to the person you know who it belongs to.`;
+                    break;
+                case '63675423OA':
+                    message = `This pen was specially for Owen Apao to borrow. Owen, I gotta say it: you have been a really good friend and you truly deserve this pen. You are one of the best friends a person could ever ask for.`;
+                    break;
+                case '78376544RA':
+                    message = `This pen was given to a person who was in desperate need of one. You may return the pen the next day to the person you borrowed it from. If you don't return it after reading this, no one can help you; only you can. So please return it.`;
+                    break;
+                default:
+                    message = 'Invalid serial code. Please try again.';
+            }
+
+            result.textContent = message;
+        });
+    </script>
+</body>
+</html>
